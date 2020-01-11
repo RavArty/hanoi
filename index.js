@@ -1,12 +1,12 @@
 class Game {
   constructor() {
-    this.towers = [];
+    this.towers = [[3, 2, 1], [], []];
   }
 
   print() {
     console.log(JSON.stringify(this.towers));
   }
-  promptMove = (reader, fn) => {
+  promptMove = (reader, callback) => {
     this.print();
     reader.question('Enter a starting tower: ', start => {
       const startTowerIdx = parseInt(start);
@@ -23,7 +23,7 @@ class Game {
 
     if (startTower.length === 0) {
       return false;
-    } else if (endTower.length == 0) {
+    } else if (endTower.length === 0) {
       return true;
     } else {
       const topStartDisc = startTower[startTower.length - 1];
